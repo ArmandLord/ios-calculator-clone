@@ -75,235 +75,91 @@ Lo primero que vamos a hacer es crear la estructura de carpetas y ficheros de nu
 
 ### Iteration 2: Crear el screen de nuestra calculadora
 
-- Crear el screen de nuestra calculadora. Para ello, vamos a crear un fichero `CalculatorScreen.tsx` en la carpeta `screens`, y vamos a crear un componente funcional que renderice un `View` con un `Text` que muestre el número que se está introduciendo en la calculadora.
+- Crea un fichero `CalculatorScreen.tsx` en la carpeta `screens`.
 
-```tsx
-import React from 'react';
-import {View, Text} from 'react-native';
+- Crea un componente funcional que renderice un `View` con un `Text` que muestre el número que se está introduciendo en la calculadora.
 
-export const CalculatorScreen = () => {
-  return (
-    <View>
-      <Text>100</Text>
-    </View>
-  );
-};
-```
+- Crea los estilos de `CalculatorScreen` en un nuevo fichero llamado `CalculatorScreen.styles.ts` dentro la carpeta `theme`.
 
-- Crear los estilos de nuestro screen. Para ello, vamos a crear un fichero `CalculatorScreen.styles.ts` en la carpeta `theme`, y vamos a crear un objeto `StyleSheet` con los estilos de nuestro screen. Puedes utilizar el siguiente código como ejemplo:
+- Crea un objeto `StyleSheet` con los estilos que utilizaras en el componente `CalculatorScreen`.
 
-```tsx
-import {StyleSheet} from 'react-native';
+- Importa los estilos en el fichero `CalculatorScreen.tsx` y utilizalos.
 
-export const styles = StyleSheet.create({
-  container: {
-    ...
-  },
-  result: {
-    ...
-  },
-});
-```
-
-- Importar los estilos de nuestro screen en el fichero `CalculatorScreen.tsx` y se los vamos a pasar al `View` que hemos creado.
-
-```tsx
-import React from 'react';
-import {View, Text} from 'react-native';
-import {styles} from '../theme/CalculatorScreen.styles';
-
-export const CalculatorScreen = () => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.result}>100</Text>
-    </View>
-  );
-};
-```
-
-- Importar nuestro screen en el fichero `App.tsx` y vamos a renderizarlo.
-
-```tsx
-import React from 'react';
-import {CalculatorScreen} from './src/screens/CalculatorScreen';
-
-const App = () => {
-  return <CalculatorScreen />;
-};
-
-export default App;
-```
+- Importa `CalculatorScreen.tsx` en el fichero `App.tsx` y renderízalo.
 
 ### Iteration 3: Crear contenedor de los botones de nuestra calculadora
 
-- Crear el contenedor de nuestra calculadora y los botones que vamos a utilizar para realizar las operaciones. Para ello, vamos a crear un fichero `CalculatorContainer.tsx` en la carpeta `components`, y vamos a crear un componente funcional que renderice un `View` con un `children` para renderizar el contenido que le pasemos por props.
+- Crea el contenedor de la calculadora.
 
-* No te olvides de tipar el componente con TypeScript.
+- Crea un fichero `CalculatorContainer.tsx` en la carpeta `components`, dentro crear un componente funcional que renderice un `View` con un `children` para renderizar el contenido que le pasemos por props.
 
-```tsx
-import React from 'react';
-import {View} from 'react-native';
+\*\* No te olvides de tipar el componente con TypeScript.
 
-interface Props {
-  ...
-}
+- Crea los estilos del contenedor.
 
-export const CalculatorContainer = ({children}: Props) => {
-  return (
-    ...
-  )
-};
-```
-
-Ahora, vamos a crear los estilos de nuestro contenedor. Para ello, en el fichero `CalculatorScreen.styles.ts`, creamos una nueva propiedad `containerButtons` con los estilos de nuestro contenedor.
-
-```tsx
-import {StyleSheet} from 'react-native';
-
-export const styles = StyleSheet.create({
-  container: {
-    ...
-  },
-  result: {
-    ...
-  },
-  containerButtons: {
-    ...
-  },
-});
-```
-
-Por último, vamos a importar nuestro contenedor en el fichero `CalculatorScreen.tsx` y vamos a renderizarlo debajo del `Text` que hemos creado anteriormente.
+- Importa `CalculatorContainer` en el fichero `CalculatorScreen.tsx` y renderizalo debajo del `Text` que hemos creado anteriormente.
 
 ### Iteration 4: Crear los botones de nuestra calculadora
 
-Lo siguiente que vamos a hacer es crear los botones de nuestra calculadora. Para ello, vamos a crear un fichero `CalculatorButton.tsx` en la carpeta `components`, y vamos a crear un componente funcional que renderice un `TouchableOpacity` con un `Text` que muestre el texto que le pasemos por props.
+- Crea los botones de la calculadora.
 
-También necesitaremos pasarle props como el color del botón, el ancho del botón y la función que se ejecutará cuando pulsemos el botón.
+- Crea un fichero `CalculatorButton.tsx` en la carpeta `components`.
 
-- No olvides darle el tipo a las props del componente.
+- Dentro de `CalculatorButton` crea un componente funcional que renderice un `TouchableOpacity` con un `Text` que muestre el texto que le pasemos por props.
 
-* Tip: puedes utilizar condicionales para establecer el ancho del botón o el color del texto.
+- El componente `CalculatorButton` debe recibir el texto que se va a mostrar en el botón como `children`.
 
-```tsx
-import React from 'react';
-import {Text, TouchableOpacity} from 'react-native';
+- El componente `CalculatorButton` debe recibir el color del botón como `color`.
 
-interface Props {
-  children: ...;
-  color: ...;
-  colorText: ...;
-  size: ...;
-  onPress: ...;
-}
+- El componente `CalculatorButton` debe recibir el color del texto como `colorText`.
 
-export const CalculatorButton = ({
-  children,
-  color,
-  colorText,
-  size,
-  onPress,
-}: Props) => {
-  return (
-    <TouchableOpacity
-      onPress={onPress}>
-      <Text>
-        {children}
-      </Text>
-    </TouchableOpacity>
-  );
-};
-```
+- El componente `CalculatorButton` debe recibir el tamaño del texto como `size`.
 
-- Importar nuestro botón en el fichero `CalculatorScreen.tsx` y renderizarlo dentro del `CalculatorContainer`.
+- El componente `CalculatorButton` debe recibir la función que se ejecutará cuando pulsemos el botón como `onPress`.
+
+\*\* No olvides darle el tipo a las props del componente.
+
+- Tip: puedes utilizar condicionales para establecer el ancho del botón o el color del texto.
+
+- Importa el botón en el fichero `CalculatorScreen.tsx` y renderizalo dentro del `CalculatorContainer`.
+
 - No te olvides de pasarle las props que necesita el componente.
+
 - Coloca los botones en el orden que aparecen en la imagen de la calculadora, así como los colores que aparecen en la imagen.
 
 * Tip: puedes utilizar el styles.containerButtons para darle estilos al `View` que contiene los botones.
 
-```tsx
-import React from 'react';
-import {View, Text} from 'react-native';
-import {styles} from '../theme/CalculatorScreen.styles';
-import {CalculatorContainer} from '../components/CalculatorContainer';
-import {CalculatorButton} from '../components/CalculatorButton';
-
-export const CalculatorScreen = () => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.result}>100</Text>
-      <CalculatorContainer>
-        <View style={styles.containerButtons}>{/*Buttons*/}</View>
-      </CalculatorContainer>
-    </View>
-  );
-};
-```
-
 ### Iteration 5: Crear el custom hook de nuestra calculadora, para manejar el estado de nuestra aplicación
 
-Lo siguiente que vamos a hacer es crear el custom hook de nuestra calculadora, para manejar el estado de nuestra aplicación. Para ello, vamos a crear un fichero `useCalculator.ts` en la carpeta `hooks`, y vamos a crear un custom hook que devuelva el estado de nuestra aplicación y las funciones que vamos a utilizar para manejarlo.
+- Crea un custom hook para manejar el estado y metodos de la calculadora
 
-Y hagamos el primer método, que es el de limpiar la calculadora. Para ello, vamos a crear una función `clean` que establezca el número actual a `0`.
+- Crea un fichero `useCalculator.ts` en la carpeta `hooks`
 
-```tsx
-import {useState} from 'react';
+- Crea un custom hook que devuelva el estado de la aplicación y las funciones para manejarlo.
 
-export const useCalculator = () => {
-  const [number, setNumber] = useState('0');
+\*\* Puedes utilizar useState, useRef o cualquier otro hook que necesites.
 
-  const clean = () => {
-    ...
-  };
+- Importa y utiliza el custom hook en el fichero `CalculatorScreen.tsx`
 
-  return {
-    number,
-    clean,
-  };
-};
-```
+- Crea la función para limpiar la calculadora
 
-Ahora vamos a utilizar este custom hook en el fichero `CalculatorScreen.tsx`. Para ello, vamos a importar el custom hook que acabamos de crear, y vamos a utilizarlo para obtener el número actual de la calculadora y la función para limpiar la calculadora.
+- Crea la función para añadir un número o punto a la calculadora
 
-```tsx
-import React from 'react';
-import {View, Text} from 'react-native';
-import {styles} from '../theme/CalculatorScreen.styles';
-import {CalculatorContainer} from '../components/CalculatorContainer';
-import {useCalculator} from '../hooks/useCalculator';
+- Crea la función para cambiar el signo del número de la calculadora
 
-export const CalculatorScreen = () => {
-  const {number, clean} = useCalculator();
+- Crea la función para borrar el último número de la calculadora
 
-  return (
-    <View style={styles.container}>
-      <Text style={styles.result}>{number}</Text>
-      <CalculatorContainer>
-        <CalculatorButton color="#9B9B9B" colorText="#000" onPress={clean}>
-          AC
-        </CalculatorButton>
-        ...
-      </CalculatorContainer>
-    </View>
-  );
-};
-```
+- Crea la función para realizar una operación
 
-### Iteration 6: Dentro del custom hook, crear la función para añadir un número a la calculadora (addNumber)
+- Crea la función para dividir el número de la calculadora
 
-### Iteration 7: Dentro del custom hook, crear la función para cambiar el signo del número de la calculadora (changeSign)
+- Crea la función para multiplicar el número de la calculadora
 
-### Iteration 8: Dentro del custom hook, crear la función para borrar el último número de la calculadora (deleteNumber)
+- Crea la función para restar el número de la calculadora
 
-### Iteration 9: Dentro del custom hook, crear la función para realizar una operación (calculate)
+- Crea la función para sumar el número de la calculadora
 
-### Iteration 10: Dentro del custom hook, crear la función para dividir el número de la calculadora (divide)
-
-### Iteration 11: Dentro del custom hook, crear la función para multiplicar el número de la calculadora (multiply)
-
-### Iteration 12: Dentro del custom hook, crear la función para restar el número de la calculadora (subtract)
-
-### Iteration 13: Dentro del custom hook, crear la función para sumar el número de la calculadora (add)
+- Utiliza las funciones que acabas de crear en los botones de la calculadora
 
 ## Bonus
 
