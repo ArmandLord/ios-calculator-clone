@@ -2,27 +2,25 @@
 
 # Lab | React Native - iOS Calculator Clone
 
-## Learning Goals
+## Learning Objectives :notebook:
 
-This exercise allows you to practice and apply the concepts and techniques taught in class.
+By the end of this lab, you will be able to:
 
-Upon completion of this exercise, you will be able to:
+- Utilize the basic components of React Native.
+- Create custom styles with StyleSheet.
+- Manage the state of our application with useState.
+- Create a custom hook to handle the logic of our calculator and make it reusable.
+- Use TypeScript to type our application, whether it's the props of our components, the state of our application, or the parameters and return value of our custom hooks.
 
-- Utilizar los componentes básicos de React Native.
-- Crear estilos personalizados con StyleSheet.
-- Manejar el estado de nuestra aplicación con useState.
-- Crear un custom hook para manejar la lógica de nuestra calculadora y hacerla reutilizable.
-- Utilizar TypeScript para tipar nuestra aplicación, ya sean las props de nuestros componentes, el estado de nuestra aplicación o los parámetros y el valor de retorno de nuestros custom hooks.
+## Introducción
 
-## Introduction
-
-En este ejercicio vamos a crear una calculadora para iOS utilizando React Native. Para ello, vamos a utilizar los componentes básicos de React Native, como View, Text o TouchableOpacity, y vamos a crear estilos personalizados con StyleSheet. Además, vamos a utilizar TypeScript para tipar nuestra aplicación, ya sean las props de nuestros componentes, el estado de nuestra aplicación o los parámetros y el valor de retorno de nuestros custom hooks.
+In this exercise, we will create a calculator for iOS using React Native. To do this, we will use the basic components of React Native, such as View, Text, or TouchableOpacity, and we will create custom styles with StyleSheet. In addition, we will use TypeScript to type our application, whether it's the props of our components, the state of our application, or the parameters and return value of our custom hooks.
 
 ## Requirements
 
 - Fork this repo.
 - Clone this repo.
-- Ejecutar `nvm use` para utilizar la versión de Node que se indica en el fichero `.nvmrc`.
+- Run `nvm use` to use the Node version specified in the `.nvmrc` file.
 
 ```bash
 nvm use
@@ -51,120 +49,120 @@ git commit -m "done"
 git push origin master
 ```
 
-- Create Pull Request so your TAs can check up your work.
+- Create a Pull Request so your TAs can check your work.
 
 ## Example
 
-Este es un ejemplo de cómo debería verse la calculadora que vamos a crear:
+This is an example of how the calculator we are going to create should look like:
 
 ![Calculator](./assets/calculator.GIF)
 
-## Instructions
+## Iterations
 
-### Iteration 1: Crear la estructura básica de la aplicación
+### Iteration 1: Create the basic structure of the application
 
-Lo primero que vamos a hacer es crear la estructura de carpetas y ficheros de nuestra aplicación. Para ello, vamos a crear una carpeta `src` en la raíz de nuestro proyecto, y dentro de ella vamos a crear las siguientes carpetas:
+The first thing we are going to do is create the folder and file structure of our application. To do this, we will create an `src` folder at the root of our project, and inside it, we will create the following folders:
 
-- `components`: en esta carpeta vamos a crear todos los componentes que vamos a utilizar en nuestra aplicación.
+- `components`: In this folder, we will create all the components that we are going to use in our application.
 
-- `hooks`: en esta carpeta vamos a crear todos los custom hooks que vamos a utilizar en nuestra aplicación.
+- `hooks`: In this folder, we will create all the custom hooks that we are going to use in our application.
 
-- `screens`: en esta carpeta vamos a crear todas las pantallas que vamos a utilizar en nuestra aplicación.
+- `screens`: In this folder, we will create all the screens that we are going to use in our application.
 
-- `theme`: en esta carpeta vamos a crear todos los estilos que vamos a utilizar en nuestra aplicación.
+- `theme`: In this folder, we will create all the styles that we are going to use in our application.
 
-### Iteration 2: Crear el screen de nuestra calculadora
+### Iteration 2: Create the screen for our calculator
 
-- Crea un fichero `CalculatorScreen.tsx` en la carpeta `screens`.
+- Create a file `CalculatorScreen.tsx` in the `screens` folder.
 
-- Crea un componente funcional que renderice un `View` con un `Text` que muestre el número que se está introduciendo en la calculadora.
+- Create a functional component that renders a `View` with a `Text` displaying the number being entered in the calculator.
 
-- Crea los estilos de `CalculatorScreen` en un nuevo fichero llamado `CalculatorScreen.styles.ts` dentro la carpeta `theme`.
+- Create the styles for `CalculatorScreen` in a new file called `CalculatorScreen.styles.ts` inside the `theme` folder.
 
-- Crea un objeto `StyleSheet` con los estilos que utilizaras en el componente `CalculatorScreen`.
+- Create a `StyleSheet` object with the styles to be used in the `CalculatorScreen` component.
 
-- Importa los estilos en el fichero `CalculatorScreen.tsx` y utilizalos.
+- Import the styles in the `CalculatorScreen.tsx` file and use them.
 
-- Importa `CalculatorScreen.tsx` en el fichero `App.tsx` y renderízalo.
+- Import `CalculatorScreen.tsx` in the `App.tsx` file and render it.
 
-### Iteration 3: Crear contenedor de los botones de nuestra calculadora
+### Iteration 3: Create the container for the buttons of our calculator
 
-- Crea el contenedor de la calculadora.
+- Create the calculator container.
 
-- Crea un fichero `CalculatorContainer.tsx` en la carpeta `components`, dentro crear un componente funcional que renderice un `View` con un `children` para renderizar el contenido que le pasemos por props.
+- Create a file `CalculatorContainer.tsx` in the `components` folder. Inside it, create a functional component that renders a `View` with a `children` prop to render the content passed to it as props.
 
-\*\* No te olvides de tipar el componente con TypeScript.
+\*\* Don't forget to type the component with TypeScript.
 
-- Crea los estilos del contenedor.
+- Create the styles for the container.
 
-- Importa `CalculatorContainer` en el fichero `CalculatorScreen.tsx` y renderizalo debajo del `Text` que hemos creado anteriormente.
+- Import `CalculatorContainer` in the `CalculatorScreen.tsx` file and render it below the `Text` component we created earlier.
 
-### Iteration 4: Crear los botones de nuestra calculadora
+### Iteration 4: Create the buttons for our calculator
 
-- Crea los botones de la calculadora.
+- Create the calculator buttons.
 
-- Crea un fichero `CalculatorButton.tsx` en la carpeta `components`.
+- Create a file `CalculatorButton.tsx` in the `components` folder.
 
-- Dentro de `CalculatorButton` crea un componente funcional que renderice un `TouchableOpacity` con un `Text` que muestre el texto que le pasemos por props.
+- Inside `CalculatorButton`, create a functional component that renders a `TouchableOpacity` with a `Text` displaying the text passed as props.
 
-- El componente `CalculatorButton` debe recibir el texto que se va a mostrar en el botón como `children`.
+- The `CalculatorButton` component should receive the text to be displayed on the button as `children`.
 
-- El componente `CalculatorButton` debe recibir el color del botón como `color`.
+- The `CalculatorButton` component should receive the button color as `color`.
 
-- El componente `CalculatorButton` debe recibir el color del texto como `colorText`.
+- The `CalculatorButton` component should receive the text color as `colorText`.
 
-- El componente `CalculatorButton` debe recibir el tamaño del texto como `size`.
+- The `CalculatorButton` component should receive the text size as `size`.
 
-- El componente `CalculatorButton` debe recibir la función que se ejecutará cuando pulsemos el botón como `onPress`.
+- The `CalculatorButton` component should receive the function to be executed when the button is pressed as `onPress`.
 
-\*\* No olvides darle el tipo a las props del componente.
+> Don't forget to type the props of the component.
 
-- Tip: puedes utilizar condicionales para establecer el ancho del botón o el color del texto.
+- Tip: You can use conditionals to set the button width or the text color.
 
-- Importa el botón en el fichero `CalculatorScreen.tsx` y renderizalo dentro del `CalculatorContainer`.
+- Import the button in the `CalculatorScreen.tsx` file and render it inside the `CalculatorContainer`.
 
-- No te olvides de pasarle las props que necesita el componente.
+- Don't forget to pass the necessary props to the component.
 
-- Coloca los botones en el orden que aparecen en la imagen de la calculadora, así como los colores que aparecen en la imagen.
+- Arrange the buttons in the order they appear in the calculator image, as well as the colors shown in the image.
 
-* Tip: puedes utilizar el styles.containerButtons para darle estilos al `View` que contiene los botones.
+* Tip: You can use `styles.containerButtons` to style the `View` that contains the buttons.
 
-### Iteration 5: Crear el custom hook de nuestra calculadora, para manejar el estado de nuestra aplicación
+### Iteration 5: Create the custom hook for our calculator to handle the state of our application
 
-- Crea un custom hook para manejar el estado y metodos de la calculadora
+- Create a custom hook to handle the state and methods of the calculator.
 
-- Crea un fichero `useCalculator.ts` en la carpeta `hooks`
+- Create a file `useCalculator.ts` in the `hooks` folder.
 
-- Crea un custom hook que devuelva el estado de la aplicación y las funciones para manejarlo.
+- Create a custom hook that returns the state of the application and the functions to handle it.
 
-\*\* Puedes utilizar useState, useRef o cualquier otro hook que necesites.
+> You can use useState, useRef, or any other hook you need.
 
-- Importa y utiliza el custom hook en el fichero `CalculatorScreen.tsx`
+- Import and use the custom hook in the `CalculatorScreen.tsx` file.
 
-- Crea la función para limpiar la calculadora
+- Create the function to clear the calculator.
 
-- Crea la función para añadir un número o punto a la calculadora
+- Create the function to add a number or decimal point to the calculator.
 
-- Crea la función para cambiar el signo del número de la calculadora
+- Create the function to change the sign of the number in the calculator.
 
-- Crea la función para borrar el último número de la calculadora
+- Create the function to delete the last number in the calculator.
 
-- Crea la función para realizar una operación
+- Create the function to perform an operation.
 
-- Crea la función para dividir el número de la calculadora
+- Create the function to divide the number in the calculator.
 
-- Crea la función para multiplicar el número de la calculadora
+- Create the function to multiply the number in the calculator.
 
-- Crea la función para restar el número de la calculadora
+- Create the function to subtract the number in the calculator.
 
-- Crea la función para sumar el número de la calculadora
+- Create the function to add the number in the calculator.
 
-- Utiliza las funciones que acabas de crear en los botones de la calculadora
+- Use the functions you just created in the calculator buttons.
 
 ## Bonus
 
-### Bonus 1: Crear una interface para tipar el custom hook de nuestra calculadora
+### Bonus 1: Create an interface to type the custom hook of our calculator.
 
-### Bonus 2: Agregar un estado para manejar el número anterior de la calculadora
+### Bonus 2: Add a state to handle the previous number in the calculator.
 
 Happy coding! 💙
